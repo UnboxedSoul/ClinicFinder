@@ -3,5 +3,5 @@ export class Clinic {
   name: string;
   address: string;
   phone: string;
-  specialties: strings;
+  specialties: string;
 }

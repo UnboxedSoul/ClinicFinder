@@ -1,4 +1,22 @@
-<h2>Clinic Name: {{clinic.name}}</h2>
-<div><span>Address: </span>{{clinic.address}}</div>
-<div><span>Phone# </span>{{clinic.phone}}</div>
-<div><span>Specialties: </span>{{clinic.specialties}}</div>
+<h1 >Clinic: {{selectedClinic.name}}</h1>
+<div>
+    <label>Client Address:
+        <input [(ngModel)]="clientAddress" placeholder="">
+    </label>
+</div>
+<h3>Distance: {{distance}}</h3>
+<table class="clinics" style="width:100%">
+    <tr>
+        <th>Clinic Name</th> 
+        <th>Address</th>
+        <th>Phone#</th>
+        <th>Distance</th>    
+    </tr>
+
+    <tr *ngFor="let clinic of clinics" (click)="onSelect(clinic)">
+        <td>{{clinic.name}}</td> 
+        <td>{{clinic.address}}</td>
+        <td>{{clinic.phone}}</td>
+        <td>{{clinic.distance}}</td>
+    </tr>    
+</table>

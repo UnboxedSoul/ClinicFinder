@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Clinic Finder';
+  lat: number = 51.678418;
+  lon: number = 7.809007;
+  clientaddress: string = "";
 }

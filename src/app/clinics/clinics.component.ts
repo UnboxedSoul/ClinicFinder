@@ -1,5 +1,7 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { Clinic } from '../clinic';
+import { CLINICS } from '../clinics-data';
+
 
 @Component({
   selector: 'app-clinics',
@@ -8,14 +10,17 @@ import { Clinic } from '../clinic';
   encapsulation: ViewEncapsulation.None
 })
 export class ClinicsComponent implements OnInit {
-  clinic: Clinic  = {
-	id: 1,
-	name:  'Annapolis Clinic',
-	address: 'some address',
-	phone: '5558675309',
-	specialties: 'fixin shit'
+  clinics = CLINICS;
+  selectedClinic: Clinic = this.clinics[0];
+  clientAddress: string = "";
+  route = this.selectedClinic.address + "-" + this.clientAddress
+  distance: number = 0.0;
+
+  onSelect(clinic: Clinic){
+    this.selectedClinic = clinic;
+    this.route = this.selectedClinic.address + "-" + this.clientAddress    
   }
-  
+
   constructor() { }
 
   ngOnInit() {
